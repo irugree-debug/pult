@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box; /* Чтобы размеры не ехали из-за рамок */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: transparent !important; /* Прозрачный фон для игры */
+}
+
+.v764_3 {
+  /* Фиксируем размер самого пульта, чтобы кнопки не съехали относительно картинки */
+  width: 400px;
+  height: 600px;
+  background: url("../images/v764_3.png") no-repeat center center;
+  background-size: contain;
+  
+  position: absolute;
+  /* Адаптивная привязка: всегда 5% от правого нижнего угла */
+  bottom: 0%; 
+  right: 11%;
+}
+
+/* Если монитор слишком маленький (например, 1280x720) и пульт кажется огромным,
+   мы его автоматически уменьшаем через scale.
+*/
+@media (max-width: 1366px), (max-height: 768px) {
+  .v764_3 {
+    transform: scale(0.75); /* Уменьшаем до 75% */
+    transform-origin: bottom right; /* Уменьшаем к углу, чтобы не летал по экрану */
+  }
+}
+
+/* Принудительно фиксируем позиционирование всех элементов внутри пульта */
+.v764_6, .v764_7, .v764_8, .v764_9,
+.v764_10, .v764_11, .v764_12, .v764_17 {
+  position: absolute !important;
+}
+
+/* --- Твои оригинальные координаты кнопок и текста из файла --- */
+/* (Они теперь "прибиты" к фону пульта) */
+
+#manual  { top: 173px; left: 129px; width: 31px; height: 30px; border-radius: 50%; background: rgba(217,217,217,1); transition: .15s; }
+#lights  { top: 173px; left: 260px; width: 31px; height: 30px; border-radius: 50%; background: rgba(217,217,217,1); transition: .15s; }
+#hotkey  { top: 229px; left: 253px; width: 31px; height: 30px; border-radius: 50%; background: rgba(217,217,217,1); transition: .15s; }
+#airhorn { top: 230px; left: 136px; width: 31px; height: 30px; border-radius: 50%; background: rgba(217,217,217,1); transition: .15s; }
+
+.v764_6 { top: 159px; left: 127px; font-size: 9px; color: white; }
+.v764_7 { top: 214px; left: 130px; font-size: 9px; color: white; }
+.v764_8 { top: 159px; left: 265px; font-size: 9px; color: white; }
+.v764_9 { top: 208px; left: 241px; font-size: 8px; color: white; }
+
+.pult-button-active {
+  background: #507bfb !important;
+  box-shadow: 0px 0px 10px #507bfb;
+}
